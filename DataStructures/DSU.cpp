@@ -1,8 +1,6 @@
 struct DSU{
     vector<int> p;
-    DSU(int n) {
-        p.assign(n, -1);
-    }
+    DSU(int n) {p.assign(n, -1);}
     int get(int a) {
         return p[a] < 0 ? a : p[a] = get(p[a]);
     }
@@ -13,6 +11,9 @@ struct DSU{
         p[a] += p[b]; 
         p[b] = a;
         return true;
+    }
+    int getsize(int a) {
+        return -p[get(a)];
     }
     bool sameset(int a, int b) {
         return (get(a) == get(b));
