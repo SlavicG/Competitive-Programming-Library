@@ -46,7 +46,7 @@ struct LCA {
         if(pos[a] > pos[b]) swap(a, b);
         return query(pos[a], pos[b]);
     }
-    int distane(int a, int b) {
+    int distance(int a, int b) {
         return depth[a] + depth[b] - 2 * depth[lca(a, b)];
     }
 };
