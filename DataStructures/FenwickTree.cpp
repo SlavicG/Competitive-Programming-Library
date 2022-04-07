@@ -1,4 +1,4 @@
-template<typename T, bool zero_indexing>
+template<typename T>
 struct fenwick_tree {
     int N;
     vector<T> fen;
@@ -13,7 +13,7 @@ struct fenwick_tree {
         }
     }
     void add(int p, T val) {
-        for(int i = p + zero_indexing;i <= N;i += i & -i) {
+        for(int i = p + 1;i <= N;i += i & -i) {
             fen[i] += val;
         }
     }
@@ -24,10 +24,10 @@ struct fenwick_tree {
 
     T query(int l, int r) {
         T ret = 0;
-        for(int i = r + zero_indexing; i >= 1; i -= i & -i) {
+        for(int i = r + 1; i >= 1; i -= i & -i) {
             ret += fen[i];
         }   
-        for(int i = l + zero_indexing - 1; i >= 1; i -= i & -i) {
+        for(int i = l; i >= 1; i -= i & -i) {
             ret -= fen[i];
         }   
         return ret;
