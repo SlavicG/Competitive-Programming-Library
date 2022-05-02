@@ -2,7 +2,7 @@ template<typename T>
 struct FenwickTree2D{
     vector<vector<T>> fen;
     int n, m;
-    fen_2d(int N, int M){
+    FenwickTree2D(int N, int M){
         n = N, m = M; fen.assign(n + 1, vector<int>(m + 1 , 0));
     }
  
